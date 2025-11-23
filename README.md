@@ -21,6 +21,7 @@ Faolán Hamilton's Computer Infrastructure Assessment repository 2025
 ## Modules used
 
 For more information on the modules, please click on the documentation links below
+- os - used to list files in a directory (https://docs.python.org/3/library/os.html)
 - datetime - used to format dates and time inputs (https://docs.python.org/3/library/datetime.html)
 - Pandas - used to create dataframes (https://pandas.pydata.org/docs/)
 - Matplotlib - used to plot data (https://matplotlib.org/stable/api/pyplot_summary.html)
