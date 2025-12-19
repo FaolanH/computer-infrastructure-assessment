@@ -4,7 +4,9 @@
 
 # to run this file, open a new terminal and write './faang.py'
 
+
 # ----- import modules -----
+
 
 # listing files in a directory
 import os
@@ -20,22 +22,22 @@ import matplotlib
 matplotlib.use('Agg')
 
 # matplotlib.pyplot - having more plotting functionality
-
 import matplotlib.pyplot as plt
 
 # format the datetime of plots
 import matplotlib.dates as mdates
 
-#import matplotlib.pyplot.imshow()
-
 # Yahoo Finance API data - the stock data being analysed
 import yfinance as yf
 
+
 # ----- setting up the data -----
+
+
 # Setting the DataFrame. This includes the data for the FAANG companies at a period of 5 days and 60 minute intervals
 df = yf.download ('META AAPL AMZN NFLX GOOG', period = '5d', interval = '60m')
 
-# The dataframe is created from data from the past five working days, and so today's date is being used
+# The DataFrame is created from data from the past five working days, and so today's date is being used
 today = dt.datetime.today()
 
 # This formats today into an order that suits the file output name
@@ -44,7 +46,10 @@ today_format = today.strftime("%Y.%m.%d_%H.%M.%S")
 # This brings together the data and format name into a folder specifically created for the outputs
 df.to_csv("data/" + "faangdata_" + today_format + ".csv")
 
+
 # ----- sorting the data folder to find the most recent file -----
+
+
 # List files in the data folder
 datafiles = os.listdir('data/')
 
@@ -60,7 +65,9 @@ datafiles [0]
 # calling the newest csv, generating two header rows and setting the NaN row as the index
 df = pd.read_csv(f'data/{datafiles[0]}', header = [0,1], index_col = 0, parse_dates = True)
 
+
 # ----- plotting the data -----
+
 
 # Adding more functionality to the plot using fig,ax
 fig, ax = plt.subplots()
@@ -76,7 +83,7 @@ df['Close'].plot(color=colours, ax=ax, fontsize = 8);
 # The DataFrame is created from data from the past five working days, and so today's date is being used
 today = dt.datetime.today()
 
-# This formats 'today''into an order that suits the file output name
+# This formats 'today' into an order that suits the file output name
 today_format = today.strftime("%Y.%m.%d_%H.%M.%S")
 
 # This brings together the data and format name into a folder specifically created for the outputs
@@ -85,4 +92,7 @@ plotname = "plots/" + "faangdata_" + today_format + ".webp"
 # Save the figure into the plot folder as a webp which displays a higher quality image digitally with lower storage
 fig.savefig(plotname, dpi = 500)
 
-plt.show(block=True)
+# to view the plot:
+# - please navigate to the plots folder in this repository
+# - scroll to the bottom to see the most recent plot
+# (https://github.com/FaolanH/computer-infrastructure-assessment/tree/main/plots)
