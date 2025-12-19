@@ -17,10 +17,6 @@ import datetime as dt
 # pandas - generating DataFrames and plotting them
 import pandas as pd
 
-import matplotlib
-
-matplotlib.use('Agg')
-
 # matplotlib.pyplot - having more plotting functionality
 import matplotlib.pyplot as plt
 
@@ -62,6 +58,8 @@ datafiles.sort(reverse = True)
 datafiles [0]
 
 # parse_dates documentation Source: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#:~:text=as%20NaN%20values.-,parse_dates,-bool%2C%20list%20of
+
+# Source: Lecture 33 row-index-datestimes by Ian McLoughlin 
 # calling the newest csv, generating two header rows and setting the NaN row as the index
 df = pd.read_csv(f'data/{datafiles[0]}', header = [0,1], index_col = 0, parse_dates = True)
 
@@ -96,3 +94,5 @@ fig.savefig(plotname, dpi = 500)
 # - please navigate to the plots folder in this repository
 # - scroll to the bottom to see the most recent plot
 # (https://github.com/FaolanH/computer-infrastructure-assessment/tree/main/plots)
+
+# END
