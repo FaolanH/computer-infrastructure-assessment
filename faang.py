@@ -15,11 +15,16 @@ import datetime as dt
 # pandas - generating DataFrames and plotting them
 import pandas as pd
 
+import matplotlib
+matplotlib.use('Agg')
+
 # matplotlib.pyplot - having more plotting functionality
 import matplotlib.pyplot as plt
 
 # format the datetime of plots
 import matplotlib.dates as mdates
+
+#import matplotlib.pyplot.imshow()
 
 # Yahoo Finance API data - the stock data being analysed
 import yfinance as yf
@@ -54,3 +59,30 @@ datafiles [0]
 df = pd.read_csv(f'data/{datafiles[0]}', header = [0,1], index_col = 0, parse_dates = True)
 
 # ----- plotting the data -----
+
+# Adding more functionality to the plot using fig,ax
+fig, ax = plt.subplots()
+# Using the company colours in the plot
+colours = ('#A2AAAD', '#FF9900', '#34A853', '#0081FB', '#E50914')
+
+date_formatter = mdates.DateFormatter('%d %b, %I:%M%p')  # %b = abbreviated month, %Y = 4-digit year
+ax.xaxis.set_major_formatter(date_formatter)
+
+# plotting all closing prices in the DataFrame
+df['Close'].plot(color=colours, ax=ax, fontsize = 8);
+
+# The DataFrame is created from data from the past five working days, and so today's date is being used
+today = dt.datetime.today()
+
+# This formats 'today''into an order that suits the file output name
+today_format = today.strftime("%Y.%m.%d_%H.%M.%S")
+
+
+plt.isinteractive()
+plt.show(block=True)
+
+# This brings together the data and format name into a folder specifically created for the outputs
+#plotname = "plots/" + "faangdata_" + today_format + ".webp"
+
+# Save the figure into the plot folder as a webp which displays a higher quality image digitally with lower storage
+#fig.savefig(plotname, dpi = 500)
