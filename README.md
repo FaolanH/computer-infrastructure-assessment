@@ -1,7 +1,7 @@
-# computer-infrastructure-assessment
-Faolán Hamilton's Computer Infrastructure Assessment repository 2025
+# Faolán Hamilton's Computer Infrastructure Assessment repository 2025
 
-## To view this repository in codesspaces, follow the steps below:
+## Instructions and sources
+### To view this repository in codesspaces, follow the steps below:
 
 1. Go to the repository page in your browser (https://github.com/FaolanH/computer-infrastructure-assessment)
 2. At the top right of the page you will see an option to Sign in or Sign up. If you don't have one already, sign up for a free GitHub account.
@@ -9,7 +9,7 @@ Faolán Hamilton's Computer Infrastructure Assessment repository 2025
 4. Click the 'Codespaces' tab
 5. Click 'Create New Codespace' on main
 
-## Technologies used
+### Technologies used
 
 - Python
 - ipython (https://ipython.readthedocs.io/en/stable/)
@@ -18,7 +18,7 @@ Faolán Hamilton's Computer Infrastructure Assessment repository 2025
 - Codespaces
 - Jupyter
 
-## Modules used
+### Modules used
 
 For more information on the modules, please click on the documentation links below
 - os - used to list files in a directory (https://docs.python.org/3/library/os.html)
@@ -44,13 +44,15 @@ Apple (AAPL)
 Amazon (AMZN)
 Netflix (NFLX)
 Google (GOOG)
-The function should save the data into a folder called data in the root of your repository using a filename with the format YYYYMMDD-HHmmss.csv where YYYYMMDD is the four-digit year (e.g. 2025), followed by the two-digit month (e.g. 09 for September), followed by the two digit day, and HHmmss is hour, minutes, seconds. Create the data folder if you don't already have one.
+The function should save the data into a folder called data in the root of the repository using a filename with the format YYYYMMDD-HHmmss.csv where YYYYMMDD is the four-digit year (e.g. 2025), followed by the two-digit month (e.g. 09 for September), followed by the two digit day, and HHmmss is hour, minutes, seconds.
 
 ### Problem 2: Plotting Data
-Write a function called plot_data() that opens the latest data file in the data folder and, on one plot, plots the Close prices for each of the five stocks. The plot should include axis labels, a legend, and the date as a title. The function should save the plot into a plots folder in the root of your repository using a filename in the format YYYYMMDD-HHmmss.png. Create the plots folder if you don't already have one.
+Write a function called plot_data() that opens the latest data file in the data folder and, on one plot, plots the Close prices for each of the five stocks. The plot should include axis labels, a legend, and the date as a title. The function should save the plot into a plots folder in the root of the repository using a filename in the format YYYYMMDD-HHmmss.png.
 
 ### Problem 3: Script
-Create a Python script called faang.py in the root of your repository. Copy the above functions into it and it so that whenever someone at the terminal types ./faang.py, the script runs, downloading the data and creating the plot. Note that this will require a shebang line and the script to be marked executable. Explain the steps you took in your notebook.
+Create a Python script called faang.py in the root of the repository. Copy the above functions into it and it so that whenever someone at the terminal types ./faang.py, the script runs, downloading the data and creating the plot. Note that this will require a shebang line and the script to be marked executable. Explain the steps taken in the notebook.
 
 ### Problem 4: Automation
-Create a GitHub Actions workflow to run your script every Saturday morning. The script should be called faang.yml in a .github/workflows/ folder in the root of your repository. In your notebook, explain each of the individual lines in your workflow.
+Create a GitHub Actions workflow to run the script every Saturday morning. The script should be called faang.yml in a .github/workflows/ folder in the root of your repository. In your notebook, explain each of the individual lines in your workflow.
+
+### END
