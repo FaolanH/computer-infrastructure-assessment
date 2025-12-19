@@ -1,14 +1,32 @@
 #! /usr/bin/env python
 
-# datetime
+# shebang line above
+
+# to run this file, open a new terminal and write './faang.py'
+
+# ----- import modules -----
+
+# listing files in a directory
+import os
+
+# datetime - formatting date and time date
 import datetime as dt
 
-# Yahoo Finance API data
+# pandas - generating DataFrames and plotting them
+import pandas as pd
+
+# matplotlib.pyplot - having more plotting functionality
+import matplotlib.pyplot as plt
+
+# format the datetime of plots
+import matplotlib.dates as mdates
+
+# Yahoo Finance API data - the stock data being analysed
 import yfinance as yf
 
+# ----- setting up the data -----
 # Setting the DataFrame. This includes the data for the FAANG companies at a period of 5 days and 60 minute intervals
 df = yf.download ('META AAPL AMZN NFLX GOOG', period = '5d', interval = '60m')
-
 
 # The dataframe is created from data from the past five working days, and so today's date is being used
 today = dt.datetime.today()
@@ -18,3 +36,21 @@ today_format = today.strftime("%Y.%m.%d_%H.%M.%S")
 
 # This brings together the data and format name into a folder specifically created for the outputs
 df.to_csv("data/" + "faangdata_" + today_format + ".csv")
+
+# ----- sorting the data folder to find the most recent file -----
+# List files in the data folder
+datafiles = os.listdir('data/')
+
+# sortdates Source: https://docs.python.org/3/howto/sorting.html
+
+# Sort the list of files by date
+datafiles.sort(reverse = True)
+
+# latest file
+datafiles [0]
+
+# parse_dates documentation Source: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#:~:text=as%20NaN%20values.-,parse_dates,-bool%2C%20list%20of
+# calling the newest csv, generating two header rows and setting the NaN row as the index
+df = pd.read_csv(f'data/{datafiles[0]}', header = [0,1], index_col = 0, parse_dates = True)
+
+# ----- plotting the data -----
