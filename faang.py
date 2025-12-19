@@ -85,3 +85,4 @@ plotname = "plots/" + "faangdata_" + today_format + ".webp"
 # Save the figure into the plot folder as a webp which displays a higher quality image digitally with lower storage
 fig.savefig(plotname, dpi = 500)
 
+plt.show(block=True)
