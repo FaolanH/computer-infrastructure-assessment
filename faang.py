@@ -16,9 +16,11 @@ import datetime as dt
 import pandas as pd
 
 import matplotlib
+
 matplotlib.use('Agg')
 
 # matplotlib.pyplot - having more plotting functionality
+
 import matplotlib.pyplot as plt
 
 # format the datetime of plots
@@ -77,12 +79,9 @@ today = dt.datetime.today()
 # This formats 'today''into an order that suits the file output name
 today_format = today.strftime("%Y.%m.%d_%H.%M.%S")
 
-
-plt.isinteractive()
-plt.show(block=True)
-
 # This brings together the data and format name into a folder specifically created for the outputs
-#plotname = "plots/" + "faangdata_" + today_format + ".webp"
+plotname = "plots/" + "faangdata_" + today_format + ".webp"
 
 # Save the figure into the plot folder as a webp which displays a higher quality image digitally with lower storage
-#fig.savefig(plotname, dpi = 500)
+fig.savefig(plotname, dpi = 500)
+
