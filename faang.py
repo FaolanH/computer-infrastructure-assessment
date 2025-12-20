@@ -84,6 +84,15 @@ today = dt.datetime.today()
 # This formats 'today' into an order that suits the file output name
 today_format = today.strftime("%Y.%m.%d_%H.%M.%S")
 
+# Formatting the date for the plot title 
+title = today.strftime("%H:%M:%S on %A %d %m %Y")
+
+# Setting the plot title
+plt.title(f'Yfinance Stock data for {title}')
+
+# Setting the y axis label
+plt.ylabel('Closing Price')
+
 # This brings together the data and format name into a folder specifically created for the outputs
 plotname = "plots/" + "faangdata_" + today_format + ".webp"
 
