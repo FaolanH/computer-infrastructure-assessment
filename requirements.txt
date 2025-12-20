@@ -1,8 +1,4 @@
-ipython
 numpy
-scipy
-statsmodel
 matplotlib
 pandas
-seaborn
 yfinance
