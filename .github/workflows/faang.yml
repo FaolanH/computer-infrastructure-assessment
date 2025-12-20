@@ -5,9 +5,9 @@ name: Run faang.py and push changes
 
 on:
   schedule:
-    # Runs every day at 03:00 UTC — adjust as needed
-    # https://crontab.guru/#0_1_*_*_*
-    - cron: "19 7 * * 6"
+    # Runs every day at 09:53
+    # https://crontab.guru/#53_9_*_*_6
+    - cron: "53 9 * * 6"
   workflow_dispatch:  # allows manual runs
 
 permissions:
