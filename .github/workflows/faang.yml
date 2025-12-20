@@ -2,13 +2,13 @@
 # I have asked the AI to provide it's sources as well
 # Source: https://copilot.microsoft.com/shares/sHmDp7zXGSS3pvRtezzZp
 
-name: Run download.py and push changes
+name: Run faang.py and push changes
 
 on:
   schedule:
     # Runs every day at 03:00 UTC — adjust as needed
     # https://crontab.guru/#0_1_*_*_*
-    - cron: "0 1 * * *"
+    - cron: "5 1 * * *"
   workflow_dispatch:  # allows manual runs
 
 permissions:
@@ -33,8 +33,8 @@ jobs:
         run: |
           pip install -r requirements.txt || true
 
-      - name: Run download.py
-        run: python download.py
+      - name: Run faang.py
+        run: python faang.py
 
       - name: Commit changes
         run: |
