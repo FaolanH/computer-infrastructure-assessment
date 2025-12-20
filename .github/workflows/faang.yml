@@ -1,0 +1,50 @@
+# I have used Co-Pilot to write this GitHub action and update any relevant pieces
+# I have asked the AI to provide it's sources as well
+# Source: https://copilot.microsoft.com/shares/sHmDp7zXGSS3pvRtezzZp
+
+name: Run download.py and push changes
+
+on:
+  schedule:
+    # Runs every day at 03:00 UTC — adjust as needed
+    # https://crontab.guru/#0_1_*_*_*
+    - cron: "0 1 * * *"
+  workflow_dispatch:  # allows manual runs
+
+permissions:
+  contents: write   # REQUIRED to push back to the repo
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt || true
+
+      - name: Run download.py
+        run: python download.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Automated update from download.py" || echo "No changes to commit"
+
+      - name: Push changes
+        run: |
+          git push
+
+
