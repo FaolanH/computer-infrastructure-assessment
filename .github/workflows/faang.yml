@@ -1,14 +1,13 @@
 # I have used Co-Pilot to write this GitHub action and update any relevant pieces
 # I have asked the AI to provide it's sources as well
-# Source: https://copilot.microsoft.com/shares/sHmDp7zXGSS3pvRtezzZp
-
+# Source: https://copilot.microsoft.com/shares/1b5N1GtrNUxmxC3bzcQb1
 name: Run faang.py and push changes
 
 on:
   schedule:
     # Runs every day at 03:00 UTC — adjust as needed
     # https://crontab.guru/#0_1_*_*_*
-    - cron: "5 1 * * *"
+    - cron: "19 1 * * *"
   workflow_dispatch:  # allows manual runs
 
 permissions:
