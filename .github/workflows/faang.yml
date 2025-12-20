@@ -7,7 +7,7 @@ on:
   schedule:
     # Runs every day at 03:00 UTC — adjust as needed
     # https://crontab.guru/#0_1_*_*_*
-    - cron: "19 1 * * *"
+    - cron: "19 7 * * 6"
   workflow_dispatch:  # allows manual runs
 
 permissions:
